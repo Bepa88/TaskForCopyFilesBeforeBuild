@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <UsingTask TaskName="TaskForCopyFilesBeforeBuild.TaskForCopyFiles" AssemblyFile="..\TaskForCopyFilesBeforeBuild\bin\Debug\netstandard2.0\TaskForCopyFilesBeforeBuild.dll" />
+
+  <Target Name="MyTarget" BeforeTargets="Build" >
+    <TaskForCopyFiles SourceDir="C:\From" TargetDir="C:\To" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.6.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskForCopyFilesBeforeBuild\TaskForCopyFilesBeforeBuild.csproj" />
+  </ItemGroup>
+
+</Project>
